@@ -2,6 +2,7 @@ import {useState} from 'react'
 import { View, Text, TouchableOpacity, FlatList } from 'react-native'
 import { useRouter } from 'expo-router'
 import CategoryCard from '../../common/cards/category/CategoryCard';
+import useFetch from '../../../hook/useFetch';
 
 import styles from './category.style'
 import { COLORS, SIZES } from "../../../constants";
@@ -15,36 +16,35 @@ const Category = () => {
 
   const [selectedCategory, setSelectedCategory] = useState();
 
+  const {data, isLoading, error} = useFetch("BrandCategory")
+
+  
+  const handleCategoryPress = (item) => {
+    setSelectedCategory(item.id);
+  }
+
+
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-      <Text style={styles.headerTitle}>Choose Your Category</Text>
+      <Text style={styles.headerTitle}>Category</Text>
+      <TouchableOpacity>
+          <Text style={styles.headerBtn}>Add category</Text>
+      </TouchableOpacity>
       </View>
       <View style={styles.cardsContainer}>
       <FlatList
-            data={[
-              {
-                categoryImage: demoOne,
-                category_id: 1
-              },
-              {
-                categoryImage: demoTwo,
-                category_id: 2
-              },
-              {
-                categoryImage: demoThree,
-                category_id: 3
-              },
-              
-            ]}
-            renderItem={({ item }) => (
+            data={data}
+            renderItem={({ item }) => (            
               <CategoryCard
                 item={item}
                 selectedCategory={selectedCategory}
-                handleCardPress={() => {}}
+                handleCardPress={handleCategoryPress}
+
               />
             )}
-            keyExtractor={(item) => item.category_id}
+            keyExtractor={(item) => item.id}
             contentContainerStyle={{ columnGap: SIZES.medium }}
             horizontal
           />

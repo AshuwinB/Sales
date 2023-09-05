@@ -9,51 +9,18 @@ import { COLORS } from "../../../constants";
 
 const Brands = () => {
   
-  const data = [{
-    brandName: "abc",
-    // brandImage=  ,
-    brandTagline: "ahwdofa",
-    // brandCategoryId: "",
-    id: 1
-  }, {
-    brandName: "def",
-    // brandImage=  ,
-    brandTagline: "sfwafw",
-    // brandCategoryId: "",
-    id: 2
-  }, {
-    brandName: "ghi",
-    // brandImage=  ,
-    brandTagline: "giawudw",
-    // brandCategoryId: "",
-    id: 3
-  }, {
-    brandName: "abc",
-    // brandImage=  ,
-    brandTagline: "ahwdofa",
-    // brandCategoryId: "",
-    id: 4
-  }, {
-    brandName: "def",
-    // brandImage=  ,
-    brandTagline: "sfwafw",
-    // brandCategoryId: "",
-    id: 5
-  }, {
-    brandName: "ghi",
-    // brandImage=  ,
-    brandTagline: "giawudw",
-    // brandCategoryId: "",
-    id: 6
-  },
-]
+  
 
   const router = useRouter()
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Brands</Text>
+        <TouchableOpacity>
+          <Text style={styles.headerBtn}>Add Brands</Text>
+        </TouchableOpacity>
       </View>
+
       <View style={styles.cardsContainer}>
       {data?.map((brand)=> (
         <BrandCard 
@@ -67,6 +34,45 @@ const Brands = () => {
   )
 }
 
+const data = [{
+  brandName: "abc",
+  // brandImage=  ,
+  brandTagline: "ahwdofa",
+  // brandCategoryId: "",
+  id: 1
+}, {
+  brandName: "def",
+  // brandImage=  ,
+  brandTagline: "sfwafw",
+  // brandCategoryId: "",
+  id: 2
+}, {
+  brandName: "ghi",
+  // brandImage=  ,
+  brandTagline: "giawudw",
+  // brandCategoryId: "",
+  id: 3
+}, {
+  brandName: "abc",
+  // brandImage=  ,
+  brandTagline: "ahwdofa",
+  // brandCategoryId: "",
+  id: 4
+}, {
+  brandName: "def",
+  // brandImage=  ,
+  brandTagline: "sfwafw",
+  // brandCategoryId: "",
+  id: 5
+}, {
+  brandName: "ghi",
+  // brandImage=  ,
+  brandTagline: "giawudw",
+  // brandCategoryId: "",
+  id: 6
+},
+]
+
+export  {data, Brands}
 
 
-export default Brands

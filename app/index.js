@@ -1,15 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { ScrollView } from 'react-native-gesture-handler'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Stack, useRouter } from 'expo-router'
-import { ScrollView } from 'react-native-gesture-handler'
-
 import {Welcome, Category, Brands} from '../components'
-
 
 import {COLORS, SIZES, icons} from '../constants'
 
-const index = () => {
+const HomeScreen = () => {
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: COLORS.lightWhite}}>
         <Stack.Screen 
@@ -28,10 +26,9 @@ const index = () => {
             </View>
         </ScrollView>
     </SafeAreaView>
-    
   )
 }
 
-export default index
+export default HomeScreen
 
 const styles = StyleSheet.create({})

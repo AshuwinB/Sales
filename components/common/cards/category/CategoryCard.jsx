@@ -3,21 +3,25 @@ import { View, Text, TouchableOpacity, Image } from 'react-native'
 
 import styles from './category.style'
 
-const CategoryCard = (item, selectedCategory, handleCardPress) => {
+const CategoryCard = ({item, selectedCategory, handleCategoryPress}) => {
+  console.log(item)
   return (
     <TouchableOpacity 
       style={styles.container(selectedCategory, item)}
-      onPress={() => {handleCardPress}}
+      onPress={() => {handleCategoryPress}}
     >
         <TouchableOpacity
           style={styles.logoContainer(selectedCategory, item)}
         >
           <Image 
-            source={item.categoryImage}
+            source = {{uri:item.brandCategoryImage}}
             resizeMode='contain'
             style={styles.logoImage}
           />
         </TouchableOpacity>
+        <Text style={styles.companyName} numberOfLines={1}>
+        {item.brandCategoryName}
+      </Text>
     </TouchableOpacity>
   )
 }

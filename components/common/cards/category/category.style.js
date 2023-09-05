@@ -3,19 +3,19 @@ import { StyleSheet } from "react-native";
 import { COLORS, FONT, SHADOWS, SIZES } from "../../../../constants";
 
 const styles = StyleSheet.create({
-  container: (selectedCategory, item) => ({
+  container: (selectedJob, item) => ({
     width: 250,
     padding: SIZES.xLarge,
-    backgroundColor: selectedCategory === item.category_id ? COLORS.primary : "#FFF",
+    backgroundColor: selectedJob === item.job_id ? COLORS.primary : "#FFF",
     borderRadius: SIZES.medium,
     justifyContent: "space-between",
     ...SHADOWS.medium,
     shadowColor: COLORS.white,
   }),
   logoContainer: (selectedCategory, item) => ({
-    width: 50,
-    height: 50,
-    backgroundColor: selectedCategory === item.category_id ? "#FFF" : COLORS.white,
+    width: 100,
+    height: 100,
+    backgroundColor: selectedCategory === item.id ? "#FFF" : COLORS.white,
     borderRadius: SIZES.medium,
     justifyContent: "center",
     alignItems: "center",
@@ -44,9 +44,9 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
   },
-  publisher: (selectedJob) => ({
+  publisher: (selectedJob, item) => ({
     fontSize: SIZES.medium - 2,
-    fontFamily: FONT.bold,
+    fontFamily: FONT.regular,
     color: selectedJob === item.job_id ? COLORS.white : COLORS.primary,
   }),
   location: {
